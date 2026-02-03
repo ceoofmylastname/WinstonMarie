@@ -40,9 +40,9 @@ const Hero: React.FC = () => {
             transition={{ duration: 2, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <img 
-              src={HERO_SLIDES[currentSlide].url} 
-              alt="Hero Backdrop" 
+            <img
+              src={HERO_SLIDES[currentSlide].url}
+              alt="Hero Backdrop"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -52,8 +52,8 @@ const Hero: React.FC = () => {
 
       {/* Floating 3D Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             y: [0, -40, 0],
             rotate: [0, 5, 0],
             scale: [1, 1.05, 1]
@@ -61,8 +61,8 @@ const Hero: React.FC = () => {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 -left-20 w-96 h-96 bg-[#F2BBC2]/5 rounded-full blur-[100px]"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             y: [0, 60, 0],
             rotate: [0, -10, 0]
           }}
@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
       {/* Main Hero Layout */}
       <div className="relative z-10 h-full flex items-center justify-center px-6 md:px-20">
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Left Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             <motion.div
@@ -88,14 +88,14 @@ const Hero: React.FC = () => {
                   AVANT-GARDE PATISSERIE
                 </span>
               </div>
-              
-              <h1 className="text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.85] mb-8 serif tracking-tighter">
+
+              <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] leading-[0.9] md:leading-[0.85] mb-6 md:mb-8 serif tracking-tighter">
                 The Art of <br />
-                <span className="script-font text-[#F2BBC2] italic block md:inline relative">
+                <span className="script-font text-[#F2BBC2] italic block md:inline relative mt-2 md:mt-0">
                   Sweet Romance
-                  <motion.svg 
-                    viewBox="0 0 100 20" 
-                    className="absolute -bottom-4 left-0 w-full h-8 text-[#F2BBC2]/20"
+                  <motion.svg
+                    viewBox="0 0 100 20"
+                    className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-6 md:h-8 text-[#F2BBC2]/20"
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
                     transition={{ duration: 2, delay: 1 }}
@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
               </h1>
 
               <p className="max-w-lg mx-auto lg:mx-0 text-lg md:text-xl serif italic opacity-70 mb-12 leading-relaxed">
-                Elevating the ordinary into the extraordinary through a fusion of 
+                Elevating the ordinary into the extraordinary through a fusion of
                 vintage charm and modern architectural design.
               </p>
 
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
 
           {/* Right Imagery - Creative Floating Frame */}
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.8, opacity: 0, rotateY: -20 }}
               animate={{ scale: 1, opacity: 1, rotateY: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
@@ -134,7 +134,7 @@ const Hero: React.FC = () => {
               {/* Modern Framing */}
               <div className="absolute -inset-4 border border-[#F2BBC2]/20 rounded-[4rem] md:rounded-[6rem] -rotate-3"></div>
               <div className="absolute -inset-4 border border-[#F2BBC2]/10 rounded-[4rem] md:rounded-[6rem] rotate-3 translate-x-4"></div>
-              
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
@@ -144,9 +144,9 @@ const Hero: React.FC = () => {
                   transition={{ duration: 1 }}
                   className="w-full h-full rounded-[4rem] md:rounded-[6rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.5)] border-8 border-[#2D1A1D] perspective-1000"
                 >
-                  <img 
-                    src={HERO_SLIDES[currentSlide].url} 
-                    alt="Signature Cake" 
+                  <img
+                    src={HERO_SLIDES[currentSlide].url}
+                    alt="Signature Cake"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-10 right-10 glass-card px-4 py-2 rounded-full text-[10px] uppercase tracking-widest text-white">
@@ -156,7 +156,7 @@ const Hero: React.FC = () => {
               </AnimatePresence>
 
               {/* Decorative Cherry/Detail Float */}
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 5 }}
                 className="absolute -bottom-10 -left-10 w-32 h-32 glass-card rounded-full p-6 flex items-center justify-center text-center shadow-2xl z-20 border border-white/10"
@@ -172,7 +172,7 @@ const Hero: React.FC = () => {
       {/* Progress Indicator */}
       <div className="absolute bottom-12 right-12 flex space-x-3">
         {HERO_SLIDES.map((_, idx) => (
-          <div 
+          <div
             key={idx}
             className={`h-1 transition-all duration-1000 ${currentSlide === idx ? 'w-12 bg-[#F2BBC2]' : 'w-4 bg-[#F2BBC2]/20'}`}
           />
