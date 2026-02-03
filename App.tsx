@@ -5,20 +5,27 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
 import About from './components/About';
-import OrderForm from './components/OrderForm';
+import OrderModal from './components/OrderModal';
 import Footer from './components/Footer';
 import { SectionType } from './types';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<SectionType>('home');
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const handleNavClick = (section: SectionType) => {
+    if (section === 'order' || section === 'inquiry') {
+      setIsBookingOpen(true);
+      return;
+    }
     setActiveSection(section);
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const openBooking = () => setIsBookingOpen(true);
 
   return (
     <SmoothScroll>
@@ -27,12 +34,12 @@ const App: React.FC = () => {
 
         <main className="relative">
           <section id="home">
-            <Hero />
+            <Hero onOpenBooking={openBooking} />
           </section>
 
           {/* The Vintage Spotlight section with horizontal scroll logic */}
           <div id="vintage">
-            <Gallery />
+            <Gallery onOpenBooking={openBooking} />
           </div>
 
           <section id="confections" className="py-40 bg-[#4A2B2F] overflow-hidden relative z-20 shadow-[0_-50px_100px_rgba(0,0,0,0.3)]">
@@ -47,7 +54,7 @@ const App: React.FC = () => {
                     Beyond our signature cakes, we offer a curated selection of delicate confections,
                     handcrafted to provide a moment of pure bliss.
                   </p>
-                  <button className="px-12 py-5 bg-[#F2BBC2] text-[#7E4950] rounded-full uppercase text-[10px] tracking-[0.3em] font-bold hover:scale-105 transition-all">
+                  <button onClick={openBooking} className="px-12 py-5 bg-[#F2BBC2] text-[#7E4950] rounded-full uppercase text-[10px] tracking-[0.3em] font-bold hover:scale-105 transition-all">
                     Explore the Menu
                   </button>
                 </div>
@@ -69,16 +76,11 @@ const App: React.FC = () => {
 
           <About />
 
-          <section id="order" className="py-40 bg-[#F5F5F5] rounded-t-[5rem] md:rounded-t-[10rem] relative z-30">
-            <OrderForm type="order" />
-          </section>
-
-          <section id="inquiry" className="py-40 bg-white relative z-30">
-            <OrderForm type="inquiry" />
-          </section>
         </main>
 
         <Footer />
+
+        <OrderModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       </div>
     </SmoothScroll>
   );

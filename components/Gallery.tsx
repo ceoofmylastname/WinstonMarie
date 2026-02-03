@@ -3,7 +3,11 @@ import React, { useRef, useState, useLayoutEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { GALLERY_IMAGES } from '../constants';
 
-const Gallery: React.FC = () => {
+interface GalleryProps {
+  onOpenBooking?: () => void;
+}
+
+const Gallery: React.FC<GalleryProps> = ({ onOpenBooking }) => {
   const targetRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [xRange, setXRange] = useState(0);
@@ -143,7 +147,10 @@ const Gallery: React.FC = () => {
               <h4 className="text-5xl md:text-[10rem] serif italic text-[#F2BBC2] mb-16 leading-[0.85]">
                 The Future <br /> <span className="script-font">of Heritage</span>
               </h4>
-              <button className="group relative px-24 py-9 bg-white text-[#7E4950] rounded-full uppercase text-[11px] tracking-[0.5em] font-bold overflow-hidden transition-all hover:scale-110 active:scale-95 shadow-2xl">
+              <button
+                onClick={onOpenBooking}
+                className="group relative px-24 py-9 bg-white text-[#7E4950] rounded-full uppercase text-[11px] tracking-[0.5em] font-bold overflow-hidden transition-all hover:scale-110 active:scale-95 shadow-2xl"
+              >
                 <span className="relative z-10">Start Your Legacy</span>
                 <div className="absolute inset-0 bg-[#F2BBC2] translate-y-full group-hover:translate-y-0 transition-transform duration-700"></div>
               </button>
