@@ -1,8 +1,13 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const About: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [-5, -15]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [5, 20]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [50, 150]);
+
   return (
     <section className="relative py-20 md:py-40 bg-white overflow-hidden">
       {/* Background Decorative Text */}
@@ -12,11 +17,10 @@ const About: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
         {/* Creative Image Stack */}
-        <div className="relative h-[400px] md:h-[700px] order-2 lg:order-1">
+        <div className="relative h-[500px] md:h-[700px] order-2 lg:order-1">
           <motion.div
-            initial={{ rotate: -5, scale: 0.95 }}
-            whileInView={{ rotate: -8, scale: 1 }}
-            className="absolute top-0 left-0 w-3/4 aspect-[3/4] rounded-[4rem] overflow-hidden shadow-2xl z-0"
+            style={{ rotate: rotate1 }}
+            className="absolute top-0 left-0 w-3/4 aspect-[3/4] rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl z-0"
           >
             <img
               src="https://images.squarespace-cdn.com/content/v1/63f455796af1193d27f7a195/45b0b4e9-c016-4021-bd18-38893e50fba2/tempImage8y1SGw.jpg"
@@ -26,10 +30,8 @@ const About: React.FC = () => {
           </motion.div>
 
           <motion.div
-            initial={{ rotate: 5, y: 50 }}
-            whileInView={{ rotate: 12, y: 100 }}
-            transition={{ duration: 1 }}
-            className="absolute top-20 right-0 w-2/3 aspect-[3/4] rounded-[4rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.15)] z-10 border-[12px] border-white"
+            style={{ rotate: rotate2, y: y2 }}
+            className="absolute top-10 md:top-20 right-0 w-2/3 aspect-[3/4] rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.15)] z-10 border-[8px] md:border-[12px] border-white"
           >
             <img
               src="https://images.squarespace-cdn.com/content/v1/63f455796af1193d27f7a195/60baf713-32f4-459d-9d17-dd82e3ebca1d/Coquette+Bow+Styled+Shoot+Details-2.jpg"
@@ -40,11 +42,11 @@ const About: React.FC = () => {
 
           {/* Floating Badge */}
           <motion.div
-            animate={{ y: [0, -20, 0] }}
+            animate={{ y: [0, -15, 0] }}
             transition={{ repeat: Infinity, duration: 4 }}
-            className="absolute bottom-20 left-10 w-40 h-40 bg-[#7E4950] rounded-full z-20 flex items-center justify-center p-6 text-center shadow-xl border-4 border-[#F2BBC2]"
+            className="absolute bottom-10 left-0 md:bottom-20 md:left-10 w-32 h-32 md:w-40 md:h-40 bg-[#7E4950] rounded-full z-20 flex items-center justify-center p-4 md:p-6 text-center shadow-xl border-4 border-[#F2BBC2]"
           >
-            <p className="script-font text-[#F2BBC2] text-3xl leading-none">Est. 2020</p>
+            <p className="script-font text-[#F2BBC2] text-2xl md:text-3xl leading-none">Est. 2020</p>
           </motion.div>
         </div>
 
