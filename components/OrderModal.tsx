@@ -104,7 +104,10 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
                         </button>
 
                         {/* Left Side: The Form (Scrollable) */}
-                        <div className="w-full lg:w-1/2 h-full overflow-y-auto overflow-x-hidden p-8 md:p-16 lg:p-20 custom-scrollbar relative bg-[#fafafa]">
+                        <div
+                            data-lenis-prevent
+                            className="w-full lg:w-1/2 h-full overflow-y-auto overflow-x-hidden p-8 md:p-16 lg:p-20 custom-scrollbar relative bg-[#fafafa] overscroll-contain"
+                        >
                             <div className="max-w-xl mx-auto">
                                 <div className="mb-12">
                                     <h2 className="text-4xl md:text-5xl lg:text-6xl mb-4 tracking-tighter leading-none text-[#7E4950]">
