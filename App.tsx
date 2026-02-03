@@ -7,6 +7,7 @@ import Gallery from './components/Gallery';
 import About from './components/About';
 import OrderModal from './components/OrderModal';
 import FlavorQuiz from './components/FlavorQuiz';
+import CakeCalculator from './components/CakeCalculator';
 import Footer from './components/Footer';
 import { SectionType } from './types';
 
@@ -78,6 +79,8 @@ const App: React.FC = () => {
           <About />
 
           <FlavorQuiz />
+
+          <CakeCalculator onOpenBooking={openBooking} />
 
         </main>
 
