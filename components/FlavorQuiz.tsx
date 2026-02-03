@@ -149,28 +149,57 @@ const FlavorQuiz: React.FC = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             className="w-full flex flex-col md:flex-row items-center gap-12 bg-white p-6 rounded-[3rem] shadow-2xl"
                         >
-                            <div className="w-full md:w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden relative">
-                                <img
-                                    src="/assets/lambeth-cake.png"
-                                    alt="Vintage Lambeth Cake"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D1A1D]/60 to-transparent flex items-end p-8">
-                                    <p className="text-white script-font text-4xl">The Vintage Lambeth</p>
-                                </div>
-                            </div>
+                            {(() => {
+                                const resultKey = answers[3] || 'Champagne';
+                                const results = {
+                                    'Champagne': {
+                                        title: 'Champagne & Cherries',
+                                        subtitle: 'The Vintage Lambeth',
+                                        desc: 'You are a soul of timeless romance. Like the intricate piping of a Lambeth cake, you value detail, history, and a touch of drama. Your flavor is a delicate Champagne Sponge with Vanilla Bean syrup, paired with tart Cherry Compote and a luxurious White Chocolate Buttercream.',
+                                        img: '/assets/lambeth-cake.png'
+                                    },
+                                    'Espresso': {
+                                        title: 'Midnight Espresso',
+                                        subtitle: 'The Modernist Dark',
+                                        desc: 'Bold, sophisticated, and unapologetically chic. You prefer substance over sweetness. Your match is a rich Dark Chocolate Cake soaked in espresso syrup, layered with Salted Caramel Buttercream and finished with gold leaf accents.',
+                                        img: '/assets/espresso-cake.png'
+                                    },
+                                    'Lychee Martini': {
+                                        title: 'Lavender & Lemon',
+                                        subtitle: 'The Ethereal Garden',
+                                        desc: 'Soft, whimsical, and effortlessly elegant. You find beauty in the delicate moments. Your signature flavor is a light Lemon Zest Sponge with Lavender-infused syrup and a cloud-like Honey Mascarpone filling.',
+                                        img: '/assets/lemon-cake.png'
+                                    }
+                                };
+                                const result = results[resultKey as keyof typeof results] || results['Champagne'];
 
-                            <div className="w-full md:w-1/2 text-left p-4">
-                                <h4 className="text-[#C5A059] uppercase tracking-widest text-xs mb-4">Your Signature Match</h4>
-                                <h3 className="text-5xl serif text-[#7E4950] mb-6">Champagne & Cherries</h3>
-                                <p className="text-[#7E4950]/70 leading-relaxed mb-8 font-light">
-                                    You are a soul of timeless romance. Like the intricate piping of a Lambeth cake, you value detail, history, and a touch of drama. Your flavor is a delicate Champagne Sponge with Vanilla Bean syrup, paired with tart Cherry Compote and a luxurious White Chocolate Buttercream.
-                                </p>
-                                <div className="flex gap-4">
-                                    <button onClick={() => window.location.reload()} className="text-[#7E4950] underline text-xs uppercase tracking-widest">Retake Quiz</button>
-                                    <button className="bg-[#7E4950] text-[#F2BBC2] px-8 py-3 rounded-full uppercase tracking-widest text-xs font-bold">Inquire Now</button>
-                                </div>
-                            </div>
+                                return (
+                                    <>
+                                        <div className="w-full md:w-1/2 aspect-[4/5] rounded-[2rem] overflow-hidden relative">
+                                            <img
+                                                src={result.img}
+                                                alt={result.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#2D1A1D]/60 to-transparent flex items-end p-8">
+                                                <p className="text-white script-font text-4xl">{result.subtitle}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full md:w-1/2 text-left p-4">
+                                            <h4 className="text-[#C5A059] uppercase tracking-widest text-xs mb-4">Your Signature Match</h4>
+                                            <h3 className="text-5xl serif text-[#7E4950] mb-6">{result.title}</h3>
+                                            <p className="text-[#7E4950]/70 leading-relaxed mb-8 font-light">
+                                                {result.desc}
+                                            </p>
+                                            <div className="flex gap-4">
+                                                <button onClick={() => window.location.reload()} className="text-[#7E4950] underline text-xs uppercase tracking-widest">Retake Quiz</button>
+                                                <button className="bg-[#7E4950] text-[#F2BBC2] px-8 py-3 rounded-full uppercase tracking-widest text-xs font-bold">Inquire Now</button>
+                                            </div>
+                                        </div>
+                                    </>
+                                );
+                            })()}
                         </motion.div>
                     )}
 
