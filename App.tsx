@@ -76,6 +76,8 @@ const App: React.FC = () => {
 
           <About />
 
+          <FlavorQuiz />
+
         </main>
 
         <Footer />
