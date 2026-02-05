@@ -128,7 +128,7 @@ const FlavorQuiz: React.FC = () => {
                                     placeholder="your@email.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-white border-b-2 border-[#7E4950]/20 py-4 px-2 text-center text-xl serif text-[#7E4950] focus:outline-none focus:border-[#7E4950] placeholder:opacity-30"
+                                    className="w-full bg-white border-b-2 border-[#7E4950]/40 py-4 px-2 text-center text-xl serif text-[#7E4950] focus:outline-none focus:border-[#7E4950] placeholder:text-[#7E4950]/50"
                                 />
                                 <button
                                     type="submit"

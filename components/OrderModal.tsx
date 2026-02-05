@@ -59,12 +59,12 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
 
     const InputGroup = ({ label, placeholder, type = "text", fullWidth = false, required = false }: any) => (
         <div className={`group ${fullWidth ? 'col-span-full' : ''}`}>
-            <label className="text-luxury text-[10px] block mb-2 opacity-40 group-focus-within:opacity-100 transition-opacity uppercase tracking-widest">
+            <label className="text-[#7E4950] text-[10px] block mb-2 font-bold transition-opacity uppercase tracking-widest">
                 {label} {required && <span className="text-[#7E4950]">*</span>}
             </label>
             <input
                 type={type}
-                className="w-full bg-transparent border-b-2 border-[#7E4950]/10 py-3 focus:outline-none focus:border-[#7E4950] transition-colors text-lg serif italic placeholder:opacity-30"
+                className="w-full bg-transparent border-b border-[#7E4950]/30 py-3 focus:outline-none focus:border-[#7E4950] transition-colors text-lg serif italic placeholder:text-[#7E4950]/40 text-[#7E4950]"
                 placeholder={placeholder}
             />
         </div>
@@ -164,7 +164,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ isOpen, onClose }) => {
 
                                         {/* Flavor Dropdown or Radio simplified */}
                                         <div>
-                                            <label className="text-luxury text-[10px] block mb-4 opacity-40 uppercase tracking-widest">Flavor Preference</label>
+                                            <label className="text-[#7E4950] text-[10px] block mb-4 font-bold uppercase tracking-widest">Flavor Preference</label>
                                             <div className="grid grid-cols-1 gap-3">
                                                 {FLAVORS.slice(0, 4).map((f, i) => (
                                                     <label key={i} className="flex items-center gap-3 cursor-pointer group">
