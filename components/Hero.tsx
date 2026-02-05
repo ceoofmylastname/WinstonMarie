@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const HERO_SLIDES = [
   {
-    url: 'https://images.squarespace-cdn.com/content/v1/63f455796af1193d27f7a195/a7edbdc5-9f2e-42ba-bf24-b85ed0487cb3/Priscillatiered+cake.jpg',
+    url: 'https://storage.googleapis.com/msgsndr/9m2UBN29nuaCWceOgW2Z/media/6984d8abc9efe429e53df1fd.png',
     accent: 'Couture Tiers'
   },
   {
