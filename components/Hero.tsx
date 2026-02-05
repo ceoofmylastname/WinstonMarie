@@ -17,7 +17,11 @@ const HERO_SLIDES = [
   }
 ];
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenBooking: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -27,8 +31,23 @@ const Hero: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const scrollToGallery = () => {
+    const gallerySection = document.getElementById('vintage');
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#2D1A1D]">
+      {/* ... existing code ... */}
+
+      {/* (Implicitly skipping unchanged parts, but replace_file_content needs contiguity. 
+          I will target the top part to add props, and then a separate replace for the buttons 
+          if they are far apart, OR use multi_replace. 
+          Wait, lines 20-30 are the definition. Lines 114-121 are the buttons.
+          They are far apart. I should use `multi_replace_file_content`.
+      */}
       {/* Dynamic Background Slider */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -111,11 +130,17 @@ const Hero: React.FC = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-8">
-                <button className="group relative px-10 py-5 bg-white text-[#7E4950] rounded-full text-[10px] uppercase tracking-[0.3em] font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                <button
+                  onClick={onOpenBooking}
+                  className="group relative px-10 py-5 bg-white text-[#7E4950] rounded-full text-[10px] uppercase tracking-[0.3em] font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl"
+                >
                   <span className="relative z-10">Start Your Legacy</span>
                   <div className="absolute inset-0 bg-[#F2BBC2] translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                 </button>
-                <button className="text-[#F2BBC2] text-[10px] uppercase tracking-[0.3em] border-b border-[#F2BBC2]/20 pb-2 hover:border-[#F2BBC2] transition-all flex items-center group">
+                <button
+                  onClick={scrollToGallery}
+                  className="text-[#F2BBC2] text-[10px] uppercase tracking-[0.3em] border-b border-[#F2BBC2]/20 pb-2 hover:border-[#F2BBC2] transition-all flex items-center group"
+                >
                   Explore Gallery
                   <span className="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                 </button>
