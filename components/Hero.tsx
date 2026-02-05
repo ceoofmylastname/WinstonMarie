@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Main Hero Layout */}
-      <div className="relative z-10 h-full flex items-center justify-center px-6 md:px-20">
+      <div className="relative z-10 h-full flex items-center justify-center px-6 md:px-20 pt-24 md:pt-32">
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left Content */}
