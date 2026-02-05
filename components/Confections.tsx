@@ -43,7 +43,7 @@ const Confections: React.FC<ConfectionsProps> = ({ onOpenBooking }) => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#2D1A1D] pt-32 pb-20">
+        <div className="min-h-screen bg-[#2D1A1D] pt-64 pb-20">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Header Section */}
                 <div className="text-center mb-24 relative">
