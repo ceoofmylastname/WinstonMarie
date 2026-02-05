@@ -48,6 +48,12 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, activeSection }) => {
               <div className="absolute -inset-4 bg-[#F2BBC2]/5 rounded-full blur-xl -z-10 animate-pulse"></div>
             )}
           </div>
+
+          {/* Company Name - Fades out on scroll */}
+          <div className={`text-center transition-all duration-500 overflow-hidden ${isScrolled ? 'opacity-0 h-0 mt-0' : 'opacity-100 h-auto mt-4'}`}>
+            <h1 className="serif text-xl md:text-2xl text-[#F2BBC2] leading-none whitespace-nowrap">Winston Marie</h1>
+            <p className="text-[8px] md:text-[10px] text-luxury text-[#F2BBC2]/80 tracking-[0.3em] mt-1">Cakes</p>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
