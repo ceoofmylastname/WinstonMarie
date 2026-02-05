@@ -8,7 +8,7 @@ export const COLORS = {
   white: '#FFFFFF',
 };
 
-export const LOGO_URL = "https://images.squarespace-cdn.com/content/v1/63f455796af1193d27f7a195/f581a4df-9ff3-477b-88f1-139c531fe50f/Winston+Marie+Cakes+LogoLP.png?format=1500w";
+export const LOGO_URL = "https://storage.googleapis.com/msgsndr/9m2UBN29nuaCWceOgW2Z/media/6984d8abc9efe429e53df1fd.png";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', id: 'home' },

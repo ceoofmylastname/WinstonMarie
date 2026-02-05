@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavClick, activeSection }) => {
             <img
               src={LOGO_URL}
               alt="Winston Marie Cakes"
-              className={`transition-all duration-500 ${isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-24'} object-contain drop-shadow-xl brightness-0 invert`}
+              className={`transition-all duration-500 ${isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-24'} object-contain drop-shadow-xl`}
             />
             {!isScrolled && (
               <div className="absolute -inset-4 bg-[#F2BBC2]/5 rounded-full blur-xl -z-10 animate-pulse"></div>
