@@ -8,7 +8,7 @@ export const COLORS = {
   white: '#FFFFFF',
 };
 
-export const LOGO_URL = "https://storage.googleapis.com/msgsndr/9m2UBN29nuaCWceOgW2Z/media/6984d8abc9efe429e53df1fd.png";
+export const LOGO_URL = "https://storage.googleapis.com/msgsndr/9m2UBN29nuaCWceOgW2Z/media/6984dca90a7fd1b8d380bdd7.png";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', id: 'home' },
